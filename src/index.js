@@ -1,6 +1,10 @@
 console.log("Source JS file is loaded")
 
+import {Market} from './scripts/market.js';
+
 // Hero Animation
+
+window.market = Market
 
 const heroCanvas = document.getElementById("hero-canvas")
 
@@ -18,6 +22,7 @@ window.addEventListener("resize", resizeHero)
     // animate blocks
 
 
+window.ctx = heroCanvas.getContext('2d')
 
 
 function animate() {
@@ -25,10 +30,10 @@ function animate() {
   ctx.clearRect(0,0,heroCanvas.width,heroCanvas.height)
   let time = new Date()
   ctx.fillStyle = '#11A9BC'
-  ctx.fillRect(window.innerWidth * (time.getSeconds() / 60), 50, 100, 50)
+  ctx.fillRect((time.getMilliseconds() * 10 ), 50, 100, 25)
 
 }
 
-setInterval(animate, 10)
+// setInterval(animate, 1)
 
 // Data Viz

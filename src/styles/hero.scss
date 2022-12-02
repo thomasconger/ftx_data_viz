@@ -1,0 +1,36 @@
+@import './variables.scss';
+
+header {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: radial-gradient(rgba(256,256,256,0.1),rgba(256,256,256,0) );
+}
+
+#hero-canvas {
+  position: absolute;
+  background-color: black;
+  z-index: -100;
+}
+
+.title {
+  font-size: 8em;
+  color: $text-color;
+  font-family: 'Koulen', sans-serif;
+  text-align: center;
+  font-style: italic;
+  // background-color: rgba(256,256,256,0.1);
+}
+
+.title-wrapper {
+  padding: 50px;
+
+}
+
+.byline {
+  flex-direction: row;
+}

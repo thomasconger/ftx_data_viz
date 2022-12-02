@@ -55,12 +55,6 @@ table {
   border-spacing: 0;
 }
 
-body {
-  background-color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #ffffff;
-}
-
 header {
   width: 100%;
   margin: auto;
@@ -69,6 +63,7 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 }
 
 #hero-canvas {
@@ -100,4 +95,10 @@ main {
 
 main p {
   padding-bottom: 500px;
+}
+
+body {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
 }
