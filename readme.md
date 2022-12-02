@@ -82,4 +82,4 @@ Wednesday:
 
 01. User submitted comparisons
 02. Tooltips on data visualizations
-03. Calculators 
+03. Calculators
