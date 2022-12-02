@@ -70,18 +70,21 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  background: radial-gradient(rgba(256,256,256,0.1),rgba(256,256,256,0) );
 }
 
 .title {
   font-size: 8em;
   color: $text-color;
   font-family: 'Koulen', sans-serif;
+  text-align: center;
+  font-style: italic;
   // background-color: rgba(256,256,256,0.1);
 }
 
 .title-wrapper {
   padding: 50px;
-  background: radial-gradient(rgba(256,256,256,0.1),rgba(256,256,256,0) );
+
 }
 
 .byline {
