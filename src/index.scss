@@ -70,7 +70,13 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: radial-gradient(rgba(256,256,256,0.1),rgba(256,256,256,0) );
+  // background: radial-gradient(rgba(256,256,256,0.1),rgba(256,256,256,0) );
+}
+
+#hero-canvas {
+  position: absolute;
+  background-color: skyblue;
+  z-index: -100;
 }
 
 .title {
