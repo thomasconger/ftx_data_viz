@@ -63,7 +63,7 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 #hero-canvas {
@@ -82,6 +82,12 @@ header {
 
 .title-wrapper {
   padding: 50px;
+}
+
+.bitcoin {
+  position: absolute;
+  z-index: -1;
+  background: radial-gradient(rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0));
 }
 
 .byline {

@@ -5,11 +5,11 @@ class Trade {
     let width = canvasWidth;
     let height = canvasHeight;
     let colors = ["#11A9BC", "#33BBC7", "#84D6D7"]
-    let speeds = [5,10,15]
+    let speeds = [5,8,10]
     let sizes = [
-      [100, 25],
-      [200, 50],
-      [300, 75]
+      [80, 10],
+      [160, 20],
+      [240, 30]
     ]
     let size = sizes[Math.floor(Math.random() * sizes.length)]
 
@@ -30,6 +30,7 @@ class Trade {
     this.posY += this.velY;
     if (this.posX > (3000)) {
       this.posX -= 3500
+      this.color = ["#922724", "#8A0707", "#e32636"][Math.floor(Math.random() * 3)]
     }
   }
 
