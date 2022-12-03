@@ -4,8 +4,8 @@ class Trade {
   constructor (canvasWidth = 2000, canvasHeight = 2000) {
     let width = canvasWidth;
     let height = canvasHeight;
-    let colors = ["blue", "red", "green"]
-    let speeds = [10,50,200]
+    let colors = ["#11A9BC", "#33BBC7", "#84D6D7"]
+    let speeds = [5,10,15]
     let sizes = [
       [100, 25],
       [200, 50],
@@ -15,7 +15,7 @@ class Trade {
 
 
     this.color = colors[Math.floor(Math.random() * colors.length)];
-    this.posX = width - Math.random() * width;
+    this.posX = width - Math.random() * width * 4;
     this.posY = height - Math.random() * height;
     this.velX = speeds[Math.floor(Math.random() * speeds.length)];
     this.velY = 0;
@@ -28,6 +28,9 @@ class Trade {
   move = function () {
     this.posX += this.velX;
     this.posY += this.velY;
+    if (this.posX > (3000)) {
+      this.posX -= 3500
+    }
   }
 
   render = function (ctx) {

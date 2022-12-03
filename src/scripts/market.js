@@ -14,17 +14,29 @@ class Market {
   }
 
   render = function (ctx) {
-    ctx.clearRect(0,0,this.width, this.height)
+    ctx.clearRect(0,0,200000, 20000)
     for (let i = 0; i < this.trades.length; i++) {
       this.trades[i].render(ctx);
     }
   }
 
-  move = function (ctx) {
+  move = function () {
     for (let i = 0; i < this.trades.length; i++) {
       this.trades[i].move();
     }
   }
+
+  open = function () {
+    const ctx = document.getElementById('hero-canvas').getContext('2d');
+    const animate = () => {
+      this.move();
+      this.render(ctx);
+      requestAnimationFrame(animate)
+    }
+
+    animate()
+  }
+
 }
 
 
