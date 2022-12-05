@@ -14,6 +14,10 @@ What is a billion dollars, really? And how can we contextualize the FTX bankrupt
 03. [Example Cover Animation A](https://www.sliderrevolution.com/templates/cyber-particle-effect/?utm_medium=inline-ad&utm_source=css-animated-background)
 04. [Example Cover Animation B](https://codepen.io/RSH87/pen/gMdJKQ)
 
+## Example Charts
+
+01. [Tree Map](https://observablehq.com/@d3/treemap)
+
 
 ## Functionality
 

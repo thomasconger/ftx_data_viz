@@ -96,12 +96,16 @@ header {
 
 main {
   padding-top: 500px;
-  width: 750px;
+  max-width: 750px;
   margin: auto;
 }
 
-main p {
+main section {
   padding-bottom: 500px;
+}
+
+svg {
+  margin-top: 50px;
 }
 
 body {
