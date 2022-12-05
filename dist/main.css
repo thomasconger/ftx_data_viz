@@ -96,8 +96,13 @@ header {
 
 main {
   padding-top: 500px;
-  max-width: 750px;
+  max-width: 950px;
   margin: auto;
+}
+
+section p {
+  margin: auto;
+  max-width: 750px;
 }
 
 main section {
@@ -106,6 +111,12 @@ main section {
 
 svg {
   margin-top: 50px;
+  width: 100%;
+  height: 60vh;
+}
+
+rect:hover {
+  fill: white;
 }
 
 body {
