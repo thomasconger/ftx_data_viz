@@ -46,26 +46,55 @@ let data = d3.range(100).map((i) => {
 })
 
 // create an svg element and set its width and height to that of the window. by not setting a view box, the position and scale of the svg is set to the default
-const svg = d3.select('#chart1').append('svg')
-  .attr('style','background-color: black')
 
-  console.log(svg)
+
 
 const createCharts = async () => {
+
+  // Selection
+  const chart1 = d3.select('#chart1').append('svg')
+    .attr('style','background-color: black')
+
+  const chart2 = d3.select('#chart2').append('svg')
+    .attr('style','background-color: black')
+
+  const chart3 = d3.select('#chart3').append('svg')
+    .attr('style','background-color: black')
+
+  // Import data
   const data = await csv("./src/data/liquid-assets.csv")
 
-  const plot = scatterPlot()
+
+  // Chart Styles
+
+            // Test functions to get element dimensions
+            console.log(chart1)
+
+  const plot1 = scatterPlot()
     .width(950)
     .height(500)
     .data(data)
     .margin(margin)
-    .radius(5)
+    .radius((d) => Math.sqrt(+d.old_value))
     .xValue((d) => +d.old_share)
     .yValue((d) => +d.old_value)
 
-  svg.call(plot)
+  const plot2 = scatterPlot()
+    .width(950)
+    .height(300)
+    .data(data)
+    .margin(margin)
+    .radius(10)
+    .xValue((d) => +d.new_share)
+    .yValue((d) => +d.new_value)
 
+  // Rendering
 
+  chart1.call(plot1)
+
+  chart2.call(plot2)
+
+  chart3.call(plot1)
 
 
 }

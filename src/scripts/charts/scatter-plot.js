@@ -1,8 +1,9 @@
 import {
-  scaleLinear,
-  extent,
   axisLeft,
-  axisBottom
+  axisBottom,
+  extent,
+  scaleLinear,
+  scaleSqrt
 } from 'd3';
 
 export const scatterPlot = () => {
@@ -29,11 +30,16 @@ export const scatterPlot = () => {
       .domain(extent(data, yValue))
       .range([height - margin.bottom, margin.top]);
 
+    const rScale = scaleSqrt()
+      .domain(extent(data, yValue))
+      .range([0,40])
+
     // create marks based on scaled data
 
     const marks = data.map((d) => ({
       x: xScale(xValue(d)),
-      y: yScale(yValue(d))
+      y: yScale(yValue(d)),
+      r: rScale(rValue(d)),
     }));
 
     // console.log(marks)
@@ -46,7 +52,7 @@ export const scatterPlot = () => {
       .attr('fill', 'blue')
       .attr('cx', (d) => d.x)
       .attr('cy', (d) => d.y)
-      .attr('r', (d) => radius);
+      .attr('r', (d) => d.r);
 
     // create y axis
 
@@ -56,7 +62,7 @@ export const scatterPlot = () => {
       .attr('transform', `translate(${margin.left}, 0)` )
       .call(axisLeft(yScale));
 
-
+dd` i:`
 
     // create  axis
     selection
