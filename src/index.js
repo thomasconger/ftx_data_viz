@@ -30,7 +30,7 @@ ftx.open()
 let margin = {
   top: 25,
   right: 25,
-  bottom: 25,
+  bottom: 100,
   left: 100
 }
 
@@ -61,21 +61,26 @@ const createCharts = async () => {
   const chart3 = d3.select('#chart3').append('svg')
     .attr('style','background-color: black')
 
+  const chart4 = d3.select('#chart4').append('svg')
+
   // Import data
   const data = await csv("./src/data/liquid-assets.csv")
+
+  // const dots = d3.range(100).map((d) => 10 )
 
 
   // Chart Styles
 
-            // Test functions to get element dimensions
-            console.log(chart1)
+  // console.log(document.querySelector('#chart1').height)
+  // console.log(selection.node().height)
+  console.log(document.querySelector('#chart1').offsetHeight)
 
   const plot1 = scatterPlot()
-    .width(950)
-    .height(500)
+    .width(document.querySelector('#chart1').offsetWidth)
+    .height(document.querySelector('#chart1').offsetHeight * 0.6)
     .data(data)
     .margin(margin)
-    .radius((d) => Math.sqrt(+d.old_value))
+    .radius(10)
     .xValue((d) => +d.old_share)
     .yValue((d) => +d.old_value)
 
@@ -88,13 +93,21 @@ const createCharts = async () => {
     .xValue((d) => +d.new_share)
     .yValue((d) => +d.new_value)
 
+  const plot4 = iconArray()
+    .count(50)
+    .radius(10)
+    .width(10)
+    .margin(margin)
+
   // Rendering
 
   chart1.call(plot1)
 
-  chart2.call(plot2)
+  // chart2.call(plot2)
 
-  chart3.call(plot1)
+  // chart3.call(plot1)
+
+  chart4.call(plot4)
 
 
 }

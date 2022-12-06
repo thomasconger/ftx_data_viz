@@ -19,6 +19,11 @@ export const scatterPlot = () => {
 
   const my = (selection) => {
 
+    // console.log(document.querySelector('#chart1').height)
+    // console.log(selection.node().height)
+
+    // selection.attr('viewBox', `0 0 ${width} ${height}`)
+
     // create scale x function
     const xScale = scaleLinear()
       .domain(extent(data, xValue))
@@ -30,16 +35,16 @@ export const scatterPlot = () => {
       .domain(extent(data, yValue))
       .range([height - margin.bottom, margin.top]);
 
-    const rScale = scaleSqrt()
-      .domain(extent(data, yValue))
-      .range([0,40])
+    // const rScale = scaleSqrt()
+    //   .domain(extent(data, yValue))
+    //   .range([0,40])
 
     // create marks based on scaled data
 
     const marks = data.map((d) => ({
       x: xScale(xValue(d)),
       y: yScale(yValue(d)),
-      r: rScale(rValue(d)),
+      r: radius,
     }));
 
     // console.log(marks)
@@ -62,14 +67,15 @@ export const scatterPlot = () => {
       .attr('transform', `translate(${margin.left}, 0)` )
       .call(axisLeft(yScale));
 
-dd` i:`
-
     // create  axis
     selection
       .append('g')
       .attr('class', 'x-axis')
       .attr('transform', `translate(0, ${height - margin.bottom})` )
-      .call(axisBottom(xScale))
+      .call(axisBottom(xScale));
+
+      // console.log("height: " + height)
+      // console.log("width: " + width)
   }
 
   my.width = function (_) {
