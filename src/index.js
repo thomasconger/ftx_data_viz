@@ -1,7 +1,8 @@
 console.log("Source JS file is loaded")
 
 import {Market} from './scripts/hero_animation/market.js';
-import {Dummy} from './scripts/charts/dummy_scatterplot'
+import {scatterPlot} from './scripts/charts/scatter-plot';
+import {iconArray} from './scripts/charts/icon-array'
 
 // Hero Animation
 
@@ -31,6 +32,8 @@ let margin = {
   bottom: 25,
   left: 25
 }
+
+
 
 // this dummy data is randomly created and used to populate the scatter plot
 

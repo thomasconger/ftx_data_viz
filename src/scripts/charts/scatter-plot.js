@@ -1,3 +1,65 @@
+import {
+  scaleLinear,
+  extent,
+  axisLeft,
+  axisBottom
+} from 'd3';
+
+export const scatterPlot = () => {
+
+  //widht
+  //height
+  //data
+  //scalex
+  //scaley
+  //radius
+
+  let width;
+  let height;
+  let data;
+  let scaleX;
+  let scaleY;
+  let radius;
+
+  const my = (selection) => {
+    // create scale x function
+    // create scale y function
+    // create marks based on scaled data
+    // render marks 
+    // create x axis
+    // create y axis
+  }
+
+  my.width = function (_) {
+    return arguments.length ? (width = _, my) : width
+  }
+  my.height = function (_) {
+    return arguments.length ? (height = _, my) : height
+  }
+  my.data = function (_) {
+    return arguments.length ? (data = _, my) : data
+  }
+  my.scaleX = function (_) {
+    return arguments.length ? (scaleX = _, my) : scaleX
+  }
+  my.scaleY = function (_) {
+    return arguments.length ? (scaleY = _, my) : scaleY
+  }
+
+  my.radius = function (_) {
+    return arguments.length ? (radius = _, my) : radius
+  }
+
+
+
+ // the above function is a wrapper that returns an uninvoked function
+
+
+
+
+}
+
+
 // const data = []
 
 // d3.csv("../src/data/liquid_assets.csv", d3.parseRow).then((d) => {
