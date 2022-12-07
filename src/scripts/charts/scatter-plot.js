@@ -18,6 +18,7 @@ export const scatterPlot = () => {
   let cohort;
 
   const my = (selection) => {
+    // debugger;
 
     // console.log(document.querySelector('#chart1').height)
     // console.log(selection.node().height)

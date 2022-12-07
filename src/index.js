@@ -1,6 +1,7 @@
 console.log("Source JS file is loaded")
 
 import {Market} from './scripts/hero_animation/market.js';
+import {barChart} from './scripts/charts/bar-chart'
 import {scatterPlot} from './scripts/charts/scatter-plot';
 import {iconArray} from './scripts/charts/icon-array'
 import { csv } from 'd3';
@@ -30,7 +31,7 @@ ftx.open()
 let margin = {
   top: 25,
   right: 25,
-  bottom: 25,
+  bottom: 100,
   left: 100
 }
 
@@ -69,6 +70,14 @@ const createCharts = async () => {
   // Import data
   const data = await csv("./src/data/liquid-assets.csv")
 
+  const data2 = [
+    {"n": "a","v": 100},
+    {"n": "b","v": 120},
+    {"n": "c","v": 140},
+    {"n": "d","v": 160},
+    {"n": "e","v": 180}
+  ]
+
   // const dots = d3.range(100).map((d) => 10 )
 
 
@@ -77,6 +86,15 @@ const createCharts = async () => {
   // console.log(document.querySelector('#chart1').height)
   // console.log(selection.node().height)
   console.log(document.querySelector('#chart1').offsetHeight)
+
+  // debugger;
+  const plot0 = barChart()
+    .data(data2)
+    .width(document.querySelector('#chart0').offsetWidth)
+    .height(document.querySelector('#chart0').offsetHeight * 0.6)
+    .xValue((d) => d.n)
+    .yValue((d) => d.v)
+    .margin(margin)
 
   const plot1 = scatterPlot()
     .width(document.querySelector('#chart1').offsetWidth)
@@ -104,6 +122,8 @@ const createCharts = async () => {
 
   // Rendering
 
+  chart0.call(plot0)
+// debugger;
   chart1.call(plot1)
 
   chart2.call(plot2)
