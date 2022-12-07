@@ -85,7 +85,7 @@ const createCharts = async () => {
   const plot0 = barChart()
     .data(data2)
     .width(document.querySelector('#chart0').offsetWidth)
-    .height(document.querySelector('#chart0').offsetHeight * 0.6)
+    .height(document.querySelector('#chart0').offsetHeight * 0.4)
     .xValue((d) => d.n)
     .yValue((d) => d.v)
     .margin(margin)
@@ -117,13 +117,9 @@ const createCharts = async () => {
   // Rendering
 
   chart0.call(plot0)
-// debugger;
   chart1.call(plot1)
-
   chart2.call(plot2)
-
   chart3.call(plot1)
-
   chart4.call(plot4)
 
 
