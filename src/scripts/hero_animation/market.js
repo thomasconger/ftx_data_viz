@@ -1,5 +1,3 @@
-console.log("Market is loaded")
-
 import {Trade} from './trade.js';
 
 

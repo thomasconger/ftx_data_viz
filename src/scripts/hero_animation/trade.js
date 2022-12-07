@@ -1,5 +1,3 @@
-console.log("Trades is loaded")
-
 class Trade {
   constructor (canvasWidth = 2000, canvasHeight = 2000) {
     let width = canvasWidth;

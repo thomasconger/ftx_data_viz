@@ -35,9 +35,6 @@ export const iconArray = function () {
       return point;
     })
 
-
-    console.log(data)
-
     selection.selectAll('circle')
       .data(data)
       .join('circle')

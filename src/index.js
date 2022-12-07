@@ -1,5 +1,3 @@
-console.log("Source JS file is loaded")
-
 import {Market} from './scripts/hero_animation/market.js';
 import {barChart} from './scripts/charts/bar-chart'
 import {scatterPlot} from './scripts/charts/scatter-plot';
@@ -78,14 +76,10 @@ const createCharts = async () => {
     {"n": "e","v": 180}
   ]
 
-  // const dots = d3.range(100).map((d) => 10 )
 
 
   // Chart Styles
 
-  // console.log(document.querySelector('#chart1').height)
-  // console.log(selection.node().height)
-  console.log(document.querySelector('#chart1').offsetHeight)
 
   // debugger;
   const plot0 = barChart()
