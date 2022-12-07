@@ -18,29 +18,16 @@ export const scatterPlot = () => {
   let cohort;
 
   const my = (selection) => {
-    // debugger;
-
-    // console.log(document.querySelector('#chart1').height)
-    // console.log(selection.node().height)
 
     selection.attr('viewBox', `0 0 ${width} ${height}`)
 
-    // create scale x function
     const xScale = scaleLinear()
       .domain(extent(data, xValue))
       .range([margin.left, width - margin.right]);
 
-      // create scale y function
-
     const yScale = scaleLinear()
       .domain(extent(data, yValue))
       .range([height - margin.bottom, margin.top]);
-
-    // const rScale = scaleSqrt()
-    //   .domain(extent(data, yValue))
-    //   .range([0,40])
-
-    // create marks based on scaled data
 
     const marks = data.map((d) => ({
       x: xScale(xValue(d)),
@@ -48,11 +35,7 @@ export const scatterPlot = () => {
       r: radius,
     }));
 
-    // console.log(marks)
-
-    // render marks
-
-    const circles = selection.selectAll('circle')
+    selection.selectAll('circle')
       .data(marks)
       .join('circle')
       .attr('fill', 'blue')
@@ -60,23 +43,18 @@ export const scatterPlot = () => {
       .attr('cy', (d) => d.y)
       .attr('r', (d) => d.r);
 
-    // create y axis
-
     selection
       .append('g')
       .attr('class', 'y-axis')
       .attr('transform', `translate(${margin.left}, 0)` )
       .call(axisLeft(yScale));
 
-    // create  axis
     selection
       .append('g')
       .attr('class', 'x-axis')
       .attr('transform', `translate(0, ${height - margin.bottom})` )
       .call(axisBottom(xScale));
 
-      // console.log("height: " + height)
-      // console.log("width: " + width)
   }
 
   my.width = function (_) {
@@ -106,5 +84,4 @@ export const scatterPlot = () => {
   }
 
   return my
-
 }

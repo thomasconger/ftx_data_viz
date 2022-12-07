@@ -1,11 +1,4 @@
-import {
-  axisLeft,
-  axisBottom,
-  extent,
-  range,
-  scaleLinear,
-  scaleSqrt
-} from 'd3';
+import { } from 'd3';
 
 export const iconArray = function () {
 
@@ -17,17 +10,10 @@ export const iconArray = function () {
 
 
   const my = (selection) => {
-
-
-
-
-    // i want the divs to take the given radius size and the space available and automically display appropriately
-
     let spacing = 20
     let dotsPerRow = Math.floor((width - margin.left - margin.right) / (radius + spacing))
     let rows = Math.ceil(count / dotsPerRow)
     height = (count / dotsPerRow) * spacing
-
     let data = d3.range(count).map((d) => {
       let point = {}
       point.x = (d % dotsPerRow) * (spacing + 2 * radius)
@@ -43,10 +29,6 @@ export const iconArray = function () {
       .attr('cy', (d) => d.y)
       .attr('fill', 'white')
       .attr('transform', `translate(${margin.left, margin.top})`)
-    // append
-    // place
-
-    // selection.attr('viewBox', `0 0 ${width} ${height}`)
     selection.attr('style', `height: ${height}`)
   }
 
