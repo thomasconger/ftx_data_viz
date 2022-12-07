@@ -22,7 +22,7 @@ export const scatterPlot = () => {
     // console.log(document.querySelector('#chart1').height)
     // console.log(selection.node().height)
 
-    // selection.attr('viewBox', `0 0 ${width} ${height}`)
+    selection.attr('viewBox', `0 0 ${width} ${height}`)
 
     // create scale x function
     const xScale = scaleLinear()

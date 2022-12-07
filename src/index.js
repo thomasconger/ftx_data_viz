@@ -30,7 +30,7 @@ ftx.open()
 let margin = {
   top: 25,
   right: 25,
-  bottom: 100,
+  bottom: 25,
   left: 100
 }
 
@@ -77,7 +77,7 @@ const createCharts = async () => {
 
   const plot1 = scatterPlot()
     .width(document.querySelector('#chart1').offsetWidth)
-    .height(document.querySelector('#chart1').offsetHeight * 0.6)
+    .height(document.querySelector('#chart1').offsetHeight * 0.4)
     .data(data)
     .margin(margin)
     .radius(10)
