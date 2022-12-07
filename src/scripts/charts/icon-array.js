@@ -9,19 +9,29 @@ import {
 
 export const iconArray = function () {
 
+  let height;
   let width;
   let radius;
   let margin;
   let count;
 
+
   const my = (selection) => {
 
-    // adjust placement from d
+
+
+
+    // i want the divs to take the given radius size and the space available and automically display appropriately
+
+    let spacing = 20
+    let dotsPerRow = Math.floor((width - margin.left - margin.right) / (radius + spacing))
+    let rows = Math.ceil(count / dotsPerRow)
+    height = (count / dotsPerRow) * spacing
 
     let data = d3.range(count).map((d) => {
       let point = {}
-      point.x = (d % 5) * 50
-      point.y = Math.floor((d / 5)) * 50
+      point.x = (d % dotsPerRow) * (spacing + 2 * radius)
+      point.y = Math.floor((d / dotsPerRow)) * 50
       return point;
     })
 
@@ -39,11 +49,18 @@ export const iconArray = function () {
     // append
     // place
 
-
+    // selection.attr('viewBox', `0 0 ${width} ${height}`)
+    selection.attr('style', `height: ${height}`)
   }
 
+  my.height = function (_) {
+    return arguments.length ? (height = _, my) : height
+  }
   my.width = function (_) {
     return arguments.length ? (width = _, my) : width
+  }
+  my.margin = function (_) {
+    return arguments.length ? (margin = _, my) : margin
   }
   my.radius = function (_) {
     return arguments.length ? (radius = _, my) : radius
@@ -51,11 +68,6 @@ export const iconArray = function () {
   my.count = function (_) {
     return arguments.length ? (count = _, my) : count
   }
-  my.margin = function (_) {
-    return arguments.length ? (margin = _, my) : margin
-  }
-
-
 
   return my;
 }

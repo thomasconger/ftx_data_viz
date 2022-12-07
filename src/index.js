@@ -52,6 +52,9 @@ let data = d3.range(100).map((i) => {
 const createCharts = async () => {
 
   // Selection
+  const chart0 = d3.select('#chart0').append('svg')
+    .attr('style', 'background-color: black')
+
   const chart1 = d3.select('#chart1').append('svg')
     .attr('style','background-color: black')
 
@@ -94,18 +97,18 @@ const createCharts = async () => {
     .yValue((d) => +d.new_value)
 
   const plot4 = iconArray()
-    .count(50)
+    .count(8000)
     .radius(10)
-    .width(10)
+    .width(document.querySelector('#chart4').offsetWidth)
     .margin(margin)
 
   // Rendering
 
   chart1.call(plot1)
 
-  // chart2.call(plot2)
+  chart2.call(plot2)
 
-  // chart3.call(plot1)
+  chart3.call(plot1)
 
   chart4.call(plot4)
 
