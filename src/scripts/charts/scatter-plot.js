@@ -15,7 +15,7 @@ export const scatterPlot = () => {
   let yValue;
   let margin;
   let radius;
-  let cohort;
+  let classes;
 
   const my = (selection) => {
 
@@ -25,7 +25,7 @@ export const scatterPlot = () => {
       .domain(extent(data, xValue))
       .range([margin.left, width - margin.right]);
 
-    const yScale = scaleLinear()
+    const yScale = scaleSqrt()
       .domain(extent(data, yValue))
       .range([height - margin.bottom, margin.top]);
 
@@ -33,6 +33,7 @@ export const scatterPlot = () => {
       x: xScale(xValue(d)),
       y: yScale(yValue(d)),
       r: radius,
+      c: classes(d)
     }));
 
     selection.selectAll('circle')
@@ -41,7 +42,8 @@ export const scatterPlot = () => {
       .attr('fill', 'blue')
       .attr('cx', (d) => d.x)
       .attr('cy', (d) => d.y)
-      .attr('r', (d) => d.r);
+      .attr('r', (d) => d.r)
+      .attr('class', (d) => d.c)
 
     selection
       .append('g')
@@ -75,13 +77,13 @@ export const scatterPlot = () => {
   my.yValue = function (_) {
     return arguments.length ? (yValue = _, my) : yValue
   }
-
   my.radius = function (_) {
     return arguments.length ? (radius = _, my) : radius
   }
-  my.cohort = function (_) {
-    return arguments.length ? (cohort = _, my) : cohort
+  my.classes = function (_) {
+    return arguments.length ? (classes = _, my) : classes
   }
 
   return my
+
 }

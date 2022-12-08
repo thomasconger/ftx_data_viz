@@ -96,7 +96,7 @@ header {
 
 main {
   padding-top: 500px;
-  max-width: 950px;
+  max-width: 1250px;
   margin: auto;
 }
 
@@ -107,13 +107,15 @@ section p {
 }
 
 main section {
+  min-height: 100%;
   padding-bottom: 500px;
 }
 
 svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 50px;
-  width: 100%;
-  height: 60vh;
 }
 
 rect:hover {
@@ -125,6 +127,16 @@ rect:hover {
   margin: auto;
   min-width: 200px;
   width: 15vw;
+}
+
+.before {
+  fill: #11A9BC;
+  stroke: #11A9BC;
+}
+
+.after {
+  fill: #e32636;
+  stroke: #e32636;
 }
 
 body {

@@ -25,21 +25,20 @@ let margin = {
   left: 100
 }
 
-let data = d3.range(100).map((i) => {
-  let point = {};
-  point.x = i;
-  point.y = Math.random() * 1500 + 50;
-  return point;
-})
-
+let height = window.innerHeight
+let width = window.innerWidth * 0.8
 
 const createCharts = async () => {
 
   const chart0 = d3.select('#chart0').append('svg')
     .attr('style', 'background-color: black')
+    .attr('width', width )
+    .attr('height', height )
 
   const chart1 = d3.select('#chart1').append('svg')
     .attr('style','background-color: black')
+    .attr('width', width )
+    .attr('height', height )
 
   const chart2 = d3.select('#chart2').append('svg')
     .attr('style','background-color: black')
@@ -49,36 +48,41 @@ const createCharts = async () => {
 
   const chart4 = d3.select('#chart4').append('svg')
 
-  const data = await csv("./src/data/liquid-assets.csv")
+  const data = await csv("./src/data/ftx-assets.csv")
 
   const data2 = [
-    {"n": "wells fargo","v": 6000},
-    {"n": "chase","v": 120},
-    {"n": "boa","v": 140},
-    {"n": "goldman","v": 160},
-    {"n": "ftx","v": 180}
+    {"n": "wells fargo","v": 100000},
+    {"n": "chase","v": 100000},
+    {"n": "boa","v": 100000},
+    {"n": "goldman","v": 10000},
+    {"n": "ftx","v": 100000}
   ]
+
+
+
+  // take the lesser of two values
 
   const plot0 = barChart()
     .data(data2)
-    .width(document.querySelector('#chart0').offsetWidth)
-    .height(document.querySelector('#chart0').offsetHeight * 0.6)
+    .width(width)
+    .height(height)
     .xValue((d) => d.n)
     .yValue((d) => d.v)
     .margin(margin)
 
   const plot1 = scatterPlot()
-    .width(document.querySelector('#chart1').offsetWidth)
-    .height(document.querySelector('#chart1').offsetHeight * 0.6)
+    .width(width)
+    .height(height)
     .data(data)
     .margin(margin)
-    .radius(10)
-    .xValue((d) => +d.old_share)
-    .yValue((d) => +d.old_value)
+    .radius(5)
+    .xValue((d) => +d.portfolio_share)
+    .yValue((d) => +d.value)
+    .classes((d) => `${d.relative_liquidity} ${d.period}`)
 
   const plot2 = scatterPlot()
     .width(document.querySelector('#chart2').offsetWidth)
-    .height(document.querySelector('#chart2').offsetHeight * 0.6)
+    .height(document.querySelector('#chart2').offsetHeight)
     .data(data)
     .margin(margin)
     .radius(10)
