@@ -29,7 +29,8 @@ export const iconArray = function () {
       .attr('cy', (d) => d.y)
       .attr('fill', 'white')
       .attr('transform', `translate(${margin.left, margin.top})`)
-    selection.attr('style', `height: ${height}`)
+
+      selection.attr('style', `height: ${height}`)
   }
 
   my.height = function (_) {

@@ -25,81 +25,74 @@ let margin = {
   left: 100
 }
 
-let height = window.innerHeight
-let width = window.innerWidth * 0.8
+let height = window.innerHeight * 0.6
+let width = 950
+
+if (window.innerWidth < 950) {
+  width = window.innerWidth
+}
 
 const createCharts = async () => {
 
-  const chart0 = d3.select('#chart0').append('svg')
+  const ftxAssetData = await csv("./src/data/ftx-assets.csv")
+
+  const disasterData = await csv("./src/data/disaster-comparison.csv")
+
+  const valueByLiquidityData = await csv("./src/data/ftx-value-by-liquidity.csv")
+
+  const depositComparisonData = await csv("./src/data/deposit-comparison.csv")
+
+
+  const portfolioScatter = d3.select('#portfolio-scatter').append('svg')
+  .attr('style','background-color: black')
+  .attr('width', width )
+  .attr('height', height )
+
+  const fraudBar = d3.select('#fraud-bar').append('svg')
     .attr('style', 'background-color: black')
     .attr('width', width )
     .attr('height', height )
 
-  const chart1 = d3.select('#chart1').append('svg')
-    .attr('style','background-color: black')
-    .attr('width', width )
-    .attr('height', height )
-
-  const chart2 = d3.select('#chart2').append('svg')
-    .attr('style','background-color: black')
-
   const chart3 = d3.select('#chart3').append('svg')
     .attr('style','background-color: black')
 
-  const chart4 = d3.select('#chart4').append('svg')
+  const dotPerMillion = d3.select('#dot-per-million').append('svg')
+    .attr('width', width )
 
-  const data = await csv("./src/data/ftx-assets.csv")
 
-  const data2 = [
-    {"n": "wells fargo","v": 100000},
-    {"n": "chase","v": 100000},
-    {"n": "boa","v": 100000},
-    {"n": "goldman","v": 10000},
-    {"n": "ftx","v": 100000}
-  ]
 
 
 
   // take the lesser of two values
 
   const plot0 = barChart()
-    .data(data2)
+    .data(disasterData)
     .width(width)
     .height(height)
-    .xValue((d) => d.n)
-    .yValue((d) => d.v)
+    .xValue((d) => d.organization)
+    .yValue((d) => d.loss)
     .margin(margin)
 
   const plot1 = scatterPlot()
     .width(width)
     .height(height)
-    .data(data)
+    .data(ftxAssetData)
     .margin(margin)
     .radius(5)
     .xValue((d) => +d.portfolio_share)
     .yValue((d) => +d.value)
     .classes((d) => `${d.relative_liquidity} ${d.period}`)
 
-  const plot2 = scatterPlot()
-    .width(document.querySelector('#chart2').offsetWidth)
-    .height(document.querySelector('#chart2').offsetHeight)
-    .data(data)
-    .margin(margin)
-    .radius(10)
-    .xValue((d) => +d.new_share)
-    .yValue((d) => +d.new_value)
-
-  const plot4 = iconArray()
+  const dots = iconArray()
     .count(8000)
     .radius(10)
-    .width(document.querySelector('#chart4').offsetWidth)
+    .width(width)
     .margin(margin)
 
-  chart0.call(plot0)
-  chart1.call(plot1)
-  chart2.call(plot2)
-  chart3.call(plot1)
-  chart4.call(plot4)
+  fraudBar.call(plot0)
+  portfolioScatter.call(plot1)
+
+  dotPerMillion.call(dots)
 
 }
 

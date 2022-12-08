@@ -15,7 +15,7 @@ export const scatterPlot = () => {
   let yValue;
   let margin;
   let radius;
-  let classes;
+  let classes = ( ) => { return 'none'};
 
   const my = (selection) => {
 
