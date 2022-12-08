@@ -97,25 +97,33 @@ header {
 main {
   padding-top: 500px;
   max-width: 1250px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50vh;
 }
 
 section p {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
   max-width: 750px;
   font-size: 22px;
+  line-height: 1.5;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Lora", serif;
 }
 
 main section {
   min-height: 100%;
-  padding-bottom: 500px;
 }
 
 svg {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 rect:hover {
@@ -124,7 +132,9 @@ rect:hover {
 
 .logograph {
   display: block;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10vh;
   min-width: 200px;
   width: 15vw;
 }
@@ -137,6 +147,19 @@ rect:hover {
 .after {
   fill: #e32636;
   stroke: #e32636;
+}
+
+.register {
+  display: block;
+  margin-top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28px;
+}
+
+.register-content {
+  line-height: 2;
+  padding: 30px;
 }
 
 body {

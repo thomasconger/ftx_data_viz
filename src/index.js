@@ -53,17 +53,18 @@ const createCharts = async () => {
     .attr('width', width )
     .attr('height', height )
 
-  const chart3 = d3.select('#chart3').append('svg')
+  const valueByLiquidityBar = d3.select('#fraud-bar').append('svg')
+    .attr('style', 'background-color: black')
+    .attr('width', width )
+    .attr('height', height )
+
+  const depositBar = d3.select('#deposit-bar').append('svg')
     .attr('style','background-color: black')
+    .attr('width', width )
+    .attr('height', height )
 
   const dotPerMillion = d3.select('#dot-per-million').append('svg')
     .attr('width', width )
-
-
-
-
-
-  // take the lesser of two values
 
   const plot0 = barChart()
     .data(disasterData)
@@ -83,6 +84,22 @@ const createCharts = async () => {
     .yValue((d) => +d.value)
     .classes((d) => `${d.relative_liquidity} ${d.period}`)
 
+  const valueByLiquidityPlot = barChart()
+    .data(valueByLiquidityData)
+    .width(width)
+    .height(height)
+    .xValue((d) => d.type)
+    .yValue((d) => +d.value)
+    .margin(margin)
+
+  const depositPlot = barChart()
+    .data(depositComparisonData)
+    .width(width)
+    .height(height)
+    .xValue((d) => d.name)
+    .yValue((d) => +d.total_deposits)
+    .margin(margin)
+
   const dots = iconArray()
     .count(8000)
     .radius(10)
@@ -91,8 +108,10 @@ const createCharts = async () => {
 
   fraudBar.call(plot0)
   portfolioScatter.call(plot1)
-
+  valueByLiquidityBar.call(valueByLiquidityPlot)
+  depositBar.call(depositPlot)
   dotPerMillion.call(dots)
+
 
 }
 

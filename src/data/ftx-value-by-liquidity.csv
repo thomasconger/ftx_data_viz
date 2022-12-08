@@ -1,7 +1,7 @@
 type,value,percentage,period
-Liquid Assets,899859121,0.09418834132,after
-Liquid Assets,1012262574,0.05156124507,before
-Less Liquid,5449513087,0.5704010624,after
-Less Liquid,15415519426,0.7852146226,before
-Illiquid,3204454820,0.3354105963,after
-Illiquid,3204454820,0.1632241323,before
+Liquid Assets (after),899859121,0.09418834132,after
+Liquid Assets (before),1012262574,0.05156124507,before
+Less Liquid (after),5449513087,0.5704010624,after
+Less Liquid (before),15415519426,0.7852146226,before
+Illiquid (after),3204454820,0.3354105963,after
+Illiquid (before),3204454820,0.1632241323,before
