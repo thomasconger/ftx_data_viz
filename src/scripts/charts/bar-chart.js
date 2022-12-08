@@ -23,9 +23,6 @@ export const barChart = function () {
 
   const my = (selection) => {
 
-    console.log(width)
-    console.log(height)
-
     selection.attr("viewbox", `0 0 ${width} ${height}`)
 
 
