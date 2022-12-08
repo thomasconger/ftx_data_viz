@@ -26,7 +26,8 @@ export const barChart = function () {
     console.log(width)
     console.log(height)
 
-    selection.attr("viewbox", `0 0 ${width} ${height}`);
+    selection.attr("viewbox", `0 0 ${width} ${height}`)
+
 
     const domain = data.map(xValue)
     const y = data.map(yValue)
@@ -58,13 +59,45 @@ export const barChart = function () {
 
     selection.append('g')
       .attr('class', 'x-axis')
+      .attr('style', 'font-family: "Roboto", sans-serif; font-size: 16px;')
       .attr('transform', `translate(${margin.left}, ${height - margin.bottom})`)
       .call(axisBottom(xScale))
+      .selectAll(".tick text")
+      .call(wrap, xScale.bandwidth())
 
       selection.append('g')
       .attr('class', 'y-axis')
+      .attr('style', 'font-family: "Roboto", sans-serif; font-size: 16px;')
       .attr('transform', `translate(${margin.left}, 0)`)
-      .call(axisLeft(yScale));
+      .call(axisLeft(yScale).tickFormat(d3.format(".1n")))
+
+
+
+
+      // helper function from https://stackoverflow.com/questions/37936626/x-axis-labels-overlapping-for-grouped-category-bar-chart-in-d3 to be rewritten and replaced
+      function wrap(text, width) {
+        text.each(function() {
+          var text = d3.select(this),
+              words = text.text().split(/\s+/).reverse(),
+              word,
+              line = [],
+              lineNumber = 0,
+              lineHeight = 1.1, // ems
+              y = text.attr("y"),
+              dy = parseFloat(text.attr("dy")),
+              tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+          while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word];
+              tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+            }
+          }
+        });
+      }
   }
 
   //accessors

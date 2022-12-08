@@ -158,6 +158,7 @@ rect:hover {
 }
 
 .register-content {
+  font-family: "Roboto", sans-serif;
   line-height: 2;
   padding: 30px;
 }

@@ -48,14 +48,16 @@ export const scatterPlot = () => {
     selection
       .append('g')
       .attr('class', 'y-axis')
+      .attr('style', 'font-family: "Roboto", sans-serif; font-size: 16px;')
       .attr('transform', `translate(${margin.left}, 0)` )
-      .call(axisLeft(yScale));
+      .call(axisLeft(yScale).tickFormat(d3.format(".1n")));
 
     selection
       .append('g')
       .attr('class', 'x-axis')
+      .attr('style', 'font-family: "Roboto", sans-serif; font-size: 16px;')
       .attr('transform', `translate(0, ${height - margin.bottom})` )
-      .call(axisBottom(xScale));
+      .call(axisBottom(xScale).tickFormat(d3.format(",.1%")))
 
   }
 
