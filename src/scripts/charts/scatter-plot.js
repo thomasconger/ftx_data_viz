@@ -33,7 +33,8 @@ export const scatterPlot = () => {
       x: xScale(xValue(d)),
       y: yScale(yValue(d)),
       r: radius,
-      c: classes(d)
+      c: classes(d),
+      label: d.ticker
     }));
 
     selection.selectAll('circle')
@@ -44,6 +45,8 @@ export const scatterPlot = () => {
       .attr('cy', (d) => d.y)
       .attr('r', (d) => d.r)
       .attr('class', (d) => d.c)
+      .append('title')
+      .text(d => d.label)
 
     selection
       .append('g')
