@@ -15,67 +15,53 @@ export const scatterPlot = () => {
   let yValue;
   let margin;
   let radius;
-  let cohort;
+  let classes = ( ) => { return 'none'};
 
   const my = (selection) => {
 
-    // console.log(document.querySelector('#chart1').height)
-    // console.log(selection.node().height)
+    selection.attr('viewBox', `0 0 ${width} ${height}`)
 
-    // selection.attr('viewBox', `0 0 ${width} ${height}`)
-
-    // create scale x function
     const xScale = scaleLinear()
       .domain(extent(data, xValue))
       .range([margin.left, width - margin.right]);
 
-      // create scale y function
-
-    const yScale = scaleLinear()
+    const yScale = scaleSqrt()
       .domain(extent(data, yValue))
       .range([height - margin.bottom, margin.top]);
-
-    // const rScale = scaleSqrt()
-    //   .domain(extent(data, yValue))
-    //   .range([0,40])
-
-    // create marks based on scaled data
 
     const marks = data.map((d) => ({
       x: xScale(xValue(d)),
       y: yScale(yValue(d)),
       r: radius,
+      c: classes(d),
+      label: d.ticker
     }));
 
-    // console.log(marks)
-
-    // render marks
-
-    const circles = selection.selectAll('circle')
+    selection.selectAll('circle')
       .data(marks)
       .join('circle')
       .attr('fill', 'blue')
       .attr('cx', (d) => d.x)
       .attr('cy', (d) => d.y)
-      .attr('r', (d) => d.r);
-
-    // create y axis
+      .attr('r', (d) => d.r)
+      .attr('class', (d) => d.c)
+      .append('title')
+      .text(d => d.label)
 
     selection
       .append('g')
       .attr('class', 'y-axis')
+      .attr('style', 'font-family: "Roboto", sans-serif; font-size: 16px;')
       .attr('transform', `translate(${margin.left}, 0)` )
-      .call(axisLeft(yScale));
+      .call(axisLeft(yScale).tickFormat(d3.format(".1n")));
 
-    // create  axis
     selection
       .append('g')
       .attr('class', 'x-axis')
+      .attr('style', 'font-family: "Roboto", sans-serif; font-size: 16px;')
       .attr('transform', `translate(0, ${height - margin.bottom})` )
-      .call(axisBottom(xScale));
+      .call(axisBottom(xScale).tickFormat(d3.format(",.1%")))
 
-      // console.log("height: " + height)
-      // console.log("width: " + width)
   }
 
   my.width = function (_) {
@@ -96,12 +82,11 @@ export const scatterPlot = () => {
   my.yValue = function (_) {
     return arguments.length ? (yValue = _, my) : yValue
   }
-
   my.radius = function (_) {
     return arguments.length ? (radius = _, my) : radius
   }
-  my.cohort = function (_) {
-    return arguments.length ? (cohort = _, my) : cohort
+  my.classes = function (_) {
+    return arguments.length ? (classes = _, my) : classes
   }
 
   return my
