@@ -69,7 +69,7 @@ export const barChart = function () {
       .attr('class', 'y-axis')
       .attr('style', 'font-family: "Roboto", sans-serif; font-size: 16px;')
       .attr('transform', `translate(${margin.left}, 0)`)
-      .call(axisLeft(yScale).tickFormat((d)=>{
+      .call(axisLeft(yScale).ticks(4).tickFormat((d)=>{
         return d3.format("$~s")(d).replace(/G/, "B")
       }))
 

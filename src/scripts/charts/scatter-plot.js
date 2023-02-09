@@ -53,7 +53,9 @@ export const scatterPlot = () => {
       .attr('class', 'y-axis')
       .attr('style', 'font-family: "Roboto", sans-serif; font-size: 16px;')
       .attr('transform', `translate(${margin.left}, 0)` )
-      .call(axisLeft(yScale).tickFormat(d3.format(".1n")));
+      .call(axisLeft(yScale).ticks(5).tickFormat((d)=>{
+        return d3.format("$~s")(d).replace(/G/, "B")
+      }))
 
     selection
       .append('g')
