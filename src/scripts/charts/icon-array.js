@@ -10,8 +10,8 @@ export const iconArray = function () {
 
 
   const my = (selection) => {
-    let spacing = 20
-    let dotsPerRow = Math.floor((width - margin.left - margin.right) / (radius + spacing))
+    let spacing = 30
+    let dotsPerRow = Math.floor((width - margin.left - margin.right) / (radius + spacing) )
     let rows = Math.ceil(count / dotsPerRow)
     height = (count / dotsPerRow) * spacing
     let data = d3.range(count).map((d) => {
@@ -28,9 +28,10 @@ export const iconArray = function () {
       .attr('cx', (d) => d.x)
       .attr('cy', (d) => d.y)
       .attr('fill', 'white')
-      .attr('transform', `translate(${margin.left, margin.top})`)
+      .attr('transform', `translate(${4*radius}, ${margin.top})`)
 
-      selection.attr('style', `height: ${height}`)
+      selection
+        .attr('style', `height: ${height}; width: ${width}`)
   }
 
   my.height = function (_) {
