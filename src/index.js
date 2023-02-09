@@ -53,7 +53,7 @@ const createCharts = async () => {
     .attr('width', width )
     .attr('height', height )
 
-  const valueByLiquidityBar = d3.select('#fraud-bar').append('svg')
+  const valueByLiquidityBar = d3.select('#portfolio-bar').append('svg')
     .attr('style', 'background-color: black')
     .attr('width', width )
     .attr('height', height )
