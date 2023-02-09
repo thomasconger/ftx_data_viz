@@ -41,7 +41,8 @@ export const barChart = function () {
       x: xScale(xValue(d)) + margin.left,
       y: yScale(yValue(d)),
       w: xScale.bandwidth(),
-      h: height - yScale(yValue(d)) - margin.bottom
+      h: height - yScale(yValue(d)) - margin.bottom,
+      label: `$${yValue(d).toLocaleString('en-US')}`
     }))
 
 
@@ -53,6 +54,8 @@ export const barChart = function () {
       .attr('y', (d) => d.y)
       .attr('width', (d) => d.w )
       .attr('height', (d) => d.h )
+      .append('title')
+      .text(d=> d.label)
 
     selection.append('g')
       .attr('class', 'x-axis')
