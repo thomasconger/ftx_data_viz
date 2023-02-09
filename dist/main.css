@@ -1,3 +1,170 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:"";content:none}table{border-collapse:collapse;border-spacing:0}header{width:100%;margin:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0))}#hero-canvas{position:absolute;background-color:#000;z-index:-100}.title{font-size:8em;color:#fff;font-family:"Koulen",sans-serif;text-align:center;font-style:italic}.title-wrapper{padding:50px}.bitcoin{position:absolute;z-index:-1;background:radial-gradient(rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0))}.byline{flex-direction:row}main{padding-top:500px;max-width:1250px;margin-left:auto;margin-right:auto;margin-bottom:50vh}section p{margin-left:auto;margin-right:auto;margin-bottom:20px;max-width:750px;font-size:22px;line-height:1.5;padding-left:10px;padding-right:10px;font-family:"Lora",serif}main section{min-height:100%}svg{display:block;margin-left:auto;margin-right:auto;margin-top:100px;margin-bottom:100px}rect:hover{fill:#fff}.logograph{display:block;margin-left:auto;margin-right:auto;margin-bottom:10vh;min-width:200px;width:15vw}.before{fill:#11a9bc;stroke:#11a9bc}.after{fill:#e32636;stroke:#e32636}.register{display:block;margin-top:20vh;margin-left:auto;margin-right:auto;font-size:28px}.register-content{font-family:"Roboto",sans-serif;line-height:2;padding:30px}body{background-color:#000;font-family:Arial,Helvetica,sans-serif;color:#fff}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
-/*# sourceMappingURL=main.css.map*/
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+header {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+}
+
+#hero-canvas {
+  position: absolute;
+  background-color: black;
+  z-index: -100;
+}
+
+.title {
+  font-size: 8em;
+  color: #ffffff;
+  font-family: "Koulen", sans-serif;
+  text-align: center;
+  font-style: italic;
+}
+
+.title-wrapper {
+  padding: 50px;
+}
+
+.bitcoin {
+  position: absolute;
+  z-index: -1;
+  background: radial-gradient(rgba(255, 255, 0, 0.1), rgba(255, 255, 0, 0));
+}
+
+.byline {
+  flex-direction: row;
+}
+
+main {
+  padding-top: 500px;
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50vh;
+}
+
+section p {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  max-width: 750px;
+  font-size: 22px;
+  line-height: 1.5;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Lora", serif;
+}
+
+main section {
+  min-height: 100%;
+}
+
+svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+rect:hover {
+  fill: white;
+}
+
+.logograph {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10vh;
+  min-width: 200px;
+  width: 15vw;
+}
+
+.before {
+  fill: #11A9BC;
+  stroke: #11A9BC;
+}
+
+.after {
+  fill: #e32636;
+  stroke: #e32636;
+}
+
+.register {
+  display: block;
+  margin-top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28px;
+}
+
+.register-content {
+  font-family: "Roboto", sans-serif;
+  line-height: 2;
+  padding: 30px;
+}
+
+body {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+}
